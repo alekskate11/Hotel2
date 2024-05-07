@@ -29,6 +29,7 @@ namespace ManegmentHotelASystem.All_Users_Control
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,6 +57,7 @@ namespace ManegmentHotelASystem.All_Users_Control
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.txtBirthDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.btnAlloteRoom = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -554,5 +556,6 @@ namespace ManegmentHotelASystem.All_Users_Control
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2DateTimePicker txtBirthDate;
         private Guna.UI2.WinForms.Guna2Button btnAlloteRoom;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
     }
 }

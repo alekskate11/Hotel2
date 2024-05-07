@@ -59,10 +59,10 @@ namespace ManegmentHotelASystem
         {
             using (SHA256 sha256Hash = SHA256.Create())
             {
-                // Хешируем введенный пользователем пароль
+                
                 string hashedInputPassword = HashPassword(inputPassword);
 
-                // Сравниваем хеши
+          
                 if (hashedInputPassword == hashedPassword)
                 {
                     return true; // Пароли совпадают

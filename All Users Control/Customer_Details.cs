@@ -48,16 +48,17 @@ namespace ManegmentHotelASystem.All_Users_Control
         {
 
         }
-        int index;
-        private void Guna2DataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            index = e.RowIndex;
-            DataGridViewRow row = guna2DataGridView2.Rows[index];
-
-        }
+    
+    
+    
 
         private void Guna2Button1_Click(object sender, EventArgs e)
         {
+            Register update = new Register();
+            update.LabelText = "Update userinfo";
+            update.SetRegisterButtonVisibility(false);
+            this.Hide();
+            update.Show();
 
         }
     }

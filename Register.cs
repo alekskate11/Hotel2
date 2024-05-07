@@ -35,21 +35,37 @@ namespace ManegmentHotelASystem
         {
             if (txtLogin.Text != "" && txtNumber.Text != "" && txtGender.Text != "" && txtEmail.Text != "" && txtUsername.Text != "" && txtPassword.Text != "")
             {
+                DataSet ds = new DataSet();
                 String name = txtLogin.Text;
-                Int64 mobile = Int64.Parse(txtNumber.Text);
+
+                query = "select username from employee where username = '" + txtLogin.Text + "'";
+                ds = fn.GetData(query);
+
+                Int64 mobile = 0;
                 String gender = txtGender.Text;
                 String email = txtEmail.Text;
                 String username = txtUsername.Text;
                 String password = HashPassword(txtPassword.Text);
 
-                query = "insert into employee (ename,mobile,gender,emeailid,username,pass) values ('" + name + "' ," + mobile + ",'" + gender + "','" + email + "','" + username + "','" + password + "')";
-                fn.SetData(query, "Employee Registered");
-                clearAll();
+                if (ds.Tables[0].Rows.Count > 0 || !Int64.TryParse(txtNumber.Text, out mobile) || txtNumber.Text.Length < 10)
+                {
+                    LoginErrorLabel.Visible = true;
+                    txtNumber.Clear();
+                    txtLogin.Clear();
+                    labelErrorNum.Visible = true;
+                }
+                else if (Int64.TryParse(txtNumber.Text, out mobile) || txtNumber.Text.Length < 10)
+                {
+                    LoginErrorLabel.Visible = false;
+                    labelErrorNum.Visible = false;
+                    query = "insert into employee (ename,mobile,gender,emeailid,username,pass) values ('" + name + "' ," + mobile + ",'" + gender + "','" + email + "','" + username + "','" + password + "')";
+                    fn.SetData(query, "Employee Registered");
+                    clearAll();
 
-               
-                Dashboard dash = new Dashboard();
-                this.Hide();
-                dash.Show();
+                    Dashboard dash = new Dashboard();
+                    this.Hide();
+                    dash.Show();
+                }
             }
             else
             {
@@ -83,6 +99,21 @@ namespace ManegmentHotelASystem
             txtEmail.Clear();
             txtUsername.Clear();
             txtPassword.Clear();
+        }
+
+        public string LabelText
+        {
+            get { return label1.Text; }
+            set { label1.Text = value; }
+        }
+        public void SetRegisterButtonVisibility(bool isVisible)
+        {
+            registerBtn.Visible = isVisible;
+        }
+
+        private void UpdateBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
