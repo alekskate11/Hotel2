@@ -45,7 +45,12 @@ namespace ManegmentHotelASystem.All_Users_Control
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.dataSet1 = new ManegmentHotelASystem.DataSet1();
+            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.customerTableAdapter = new ManegmentHotelASystem.DataSet1TableAdapters.customerTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -242,6 +247,7 @@ namespace ManegmentHotelASystem.All_Users_Control
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.DataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.DataGridView1.EnableHeadersVisualStyles = false;
             this.DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.DataGridView1.Location = new System.Drawing.Point(20, 120);
@@ -275,6 +281,20 @@ namespace ManegmentHotelASystem.All_Users_Control
             this.DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // customerBindingSource
+            // 
+            this.customerBindingSource.DataMember = "customer";
+            this.customerBindingSource.DataSource = this.dataSet1;
+            // 
+            // customerTableAdapter
+            // 
+            this.customerTableAdapter.ClearBeforeFill = true;
+            // 
             // UC_AddRom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -295,6 +315,8 @@ namespace ManegmentHotelASystem.All_Users_Control
             this.Size = new System.Drawing.Size(1819, 788);
             this.Enter += new System.EventHandler(this.UC_AddRom_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -313,5 +335,8 @@ namespace ManegmentHotelASystem.All_Users_Control
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2DataGridView DataGridView1;
+        private System.Windows.Forms.BindingSource customerBindingSource;
+        private DataSet1 dataSet1;
+        private DataSet1TableAdapters.customerTableAdapter customerTableAdapter;
     }
 }

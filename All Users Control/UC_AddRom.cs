@@ -15,6 +15,7 @@ namespace ManegmentHotelASystem.All_Users_Control
     {
         Function fn = new Function();
         String query;
+      
 
         public UC_AddRom()
         {
@@ -36,6 +37,8 @@ namespace ManegmentHotelASystem.All_Users_Control
             query = "select * from rooms";
             DataSet ds = fn.GetData(query);
             DataGridView1.DataSource = ds.Tables[0];
+           
+      
         }
         public void clearAll()
         {
@@ -68,6 +71,7 @@ namespace ManegmentHotelASystem.All_Users_Control
                 query = "insert into  rooms(roomNo,roomType,bed,price) values('" + roomno + "','" + type + "', '" + bed + "'," + price + ") ";
                 fn.SetData(query, "Room Added");
                 UC_AddRom_Load(this, null);
+        
                 clearAll();
             }
             else

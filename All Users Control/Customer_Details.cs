@@ -43,5 +43,22 @@ namespace ManegmentHotelASystem.All_Users_Control
             DataSet ds = fn.GetData(query1);
             guna2DataGridView2.DataSource = ds.Tables[0];
         }
+
+        private void Guna2DataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        int index;
+        private void Guna2DataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            index = e.RowIndex;
+            DataGridViewRow row = guna2DataGridView2.Rows[index];
+
+        }
+
+        private void Guna2Button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
